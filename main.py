@@ -5,6 +5,7 @@ The rule to win the Craps game will be established later in development stage
 """
 
 from dice import *
+from winBet import *
 
 
 
@@ -22,6 +23,11 @@ def main():
             total_Result = roll1 + roll2
 
             print("Your roll reulst is: " + str(total_Result))
+
+            """Checking if the result is a win or a lose"""
+
+            game_info = Winning_Check.winning(total_Result)
+            print(game_info)
 
         else:
             print(" **** Good bye ****")
