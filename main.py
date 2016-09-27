@@ -3,23 +3,30 @@ Dice Game that gets result from rolling two dices and add the result.
 The rule to win the Craps game will be established later in development stage
 
 """
-
+from player import *
 from dice import *
+
+die = (Dice(), Dice())
+
+
+def start_game():
+    print("Welcome to Craps\nPlease enter your name")
+    player = input("> ")
 
 
 def main():
 
     while True:
-        choice = input("Ready to start playing Craps??")
-        if choice.upper() == "YES":
+        user = input("Ready to start playing Craps??")
+        if user.upper() == "YES":
             print("Rolling dice ....")
-            roll1 = Dice.roll_result(None)
-            roll2 = Dice.roll_result(None)
-            print("dice result after rolling is roll1= " + str(roll1) + " and roll2 = " + str(roll2) )
+            combined_roll = 0
+            for dice in die:
+                number_rolled = dice.roll()
+                print(str(number_rolled))
+                combined_roll += number_rolled
 
-            total_result = roll1 + roll2
-
-            print("Your roll result is: " + str(total_result))
+            print("Your roll result is: " + str(combined_roll))
 
         else:
             print(" **** Good bye ****")

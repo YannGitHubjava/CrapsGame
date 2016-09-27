@@ -1,11 +1,11 @@
-import random
+from random import choice
 
 
 class Dice:
 
-    def __init__(self):
-        self.number
+    def __init__(self, sides=6):
+        self.sides = range(1, sides+1)
 
-    def roll_result(self):
-        roll = random.randint(1,6)   # return a random number between 1, and 6 including 6
-        return roll                  # Also equal to random.randrange(1, 7)
+    def roll(self):
+        # return a random number between 1, and 6 inclusive
+        return choice(self.sides)
