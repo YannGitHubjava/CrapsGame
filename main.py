@@ -3,21 +3,18 @@ Dice Game that gets result from rolling two dices and add the result.
 The rule to win the Craps game will be established later in development stage
 
 """
-from dice import *
 from player import *
 import gameplay
 
-die = (Dice(), Dice())
-
 
 def start_game():
-    print("Welcome to Craps\nPlease enter your name")
-    name = input("> ")
-    return name
+    print('Welcome to Craps\n')
+    name = input('Please enter your name: ')
+    return Player(name)
 
 
 def main():
-    player1 = Player(start_game())
+    player1 = start_game()
     gameplay.player_turn(player1)
     # while True:
     #     user = input("Ready to start playing Craps??")
