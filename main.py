@@ -9,27 +9,25 @@ import gameplay
 
 def start_game():
     print('Welcome to Craps\n')
-    name = input('Please enter your name: ')
-    return Player(name)
+    name = input('Please enter your name: \n')
+    while True:
+        balance = input("Please enter how much money you have: \n")
+        if balance == '':
+            break
+        try:
+            balance = float(balance)
+            break
+        except ValueError:
+            print("Please enter a correct value")
+            continue
+
+    return Player(name, balance)
 
 
 def main():
+
     player1 = start_game()
-    gameplay.player_turn(player1)
-    # while True:
-    #     user = input("Ready to start playing Craps??")
-    #     if user.upper() == "YES":
-    #         print("Rolling dice ....")
-    #         combined_roll = 0
-    #         for dice in die:
-    #             number_rolled = dice.roll()
-    #             print(str(number_rolled))
-    #             combined_roll += number_rolled
-    #
-    #         print("Your roll result is: " + str(combined_roll))
-    #
-    #     else:
-    #         print(" **** Good bye ****")
-    #         break
+    while True:
+        gameplay.player_turn(player1)
 
 main()
